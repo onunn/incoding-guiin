@@ -1,6 +1,4 @@
-{% extends 'first/base.html' %}
-{% load static %}
-{% block content %}
+{% extends 'first/base.html' %} {% load static %} {% block content %}
 <div class="container">
     <form action="{% url 'create' group_id=item.id %}" method="post">
         {% csrf_token %}
