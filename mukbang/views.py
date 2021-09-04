@@ -34,3 +34,9 @@ def list(request):
     }
 
     return render(request, 'first/list.html ', context)
+
+def test(request):
+    context = {
+
+    }
+    return render(request, 'mukbang/main.html',context)
