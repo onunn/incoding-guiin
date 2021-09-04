@@ -1,5 +1,5 @@
 
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
   <head>
     <meta charset="utf-8" />
@@ -29,33 +29,33 @@
         <div class="row" style="margin-top: 10%">
             <div class="col-md-4" >
                 <input type="radio" name="category" style="display:none" value="먹방">
-                <img src="../../static/lableing/image/burger.png" id="img1" style="width: 70%;" class="center-block"
+                <img src="../../static/mukbang/image/burger.png" id="img1" style="width: 70%;" class="center-block"
                 onClick="document.getElementsByName('category')[0].checked=true; setImageRadio();">
                 <h2 style="text-align: center;">먹방</h2>
             </div>
             <div class="col-md-4">
                 <input type="radio" name="category" style="display:none" value="테크">
-                <img src="../../static/lableing/image/headphones.png" id="img2" style="width: 70%;"class="center-block"
+                <img src="../../static/mukbang/image/headphones.png" id="img2" style="width: 70%;"class="center-block"
                 onClick="document.getElementsByName('category')[1].checked=true; setImageRadio();">
                 <h2 style="text-align: center;">테크</h2>
             </div>
             <div class="col-md-4">
                 <input type="radio" name="category" style="display:none" value="음악">
                                
-                <img src="../../static/lableing/image/laptop.png" id="img3" style="width: 70%;"class="center-block"
+                <img src="../../static/mukbang/image/laptop.png" id="img3" style="width: 70%;"class="center-block"
                 onClick="document.getElementsByName('category')[2].checked=true; setImageRadio();">
                 <h2 style="text-align: center;">음악</h2>
             </div>
                 <script>
                 function setImageRadio(){
                 document.getElementById('img1').src=
-                (document.getElementsByName('category')[0].checked==true)?"../../static/lableing/image/burger.png":"../../static/lableing/image/burger2.png";
+                (document.getElementsByName('category')[0].checked==true)?"../../static/mukbang/image/burger.png":"../../static/mukbang/image/burger2.png";
 
                 document.getElementById('img2').src=
-                (document.getElementsByName('category')[1].checked==true)?"../../static/lableing/image/headphones.png":"../../static/lableing/image/headphones2.png";
+                (document.getElementsByName('category')[1].checked==true)?"../../static/mukbang/image/headphones.png":"../../static/mukbang/image/headphones2.png";
 
                 document.getElementById('img3').src=
-                (document.getElementsByName('category')[2].checked==true)?"../../static/lableing/image/laptop.png":"../../static/lableing/image/laptop2.png";
+                (document.getElementsByName('category')[2].checked==true)?"../../static/mukbang/image/laptop.png":"../../static/mukbang/image/laptop2.png";
                 }
                 </script>           
 
