@@ -1,5 +1,83 @@
 {% extends 'mukbang/base.html' %}
 {% load static %}
 {% block content %}
-    <a class="btn btn-default" href="#" role="button">시작하기</a>
+<style>
+  @import url(//fonts.googleapis.com/earlyaccess/nanumpenscript.css);
+  @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+  h1{
+    font-family: 'Hanna', sans-serif;
+  }
+  h2{
+       font-family: 'Nanum Pen Script', cursive;
+  }
+  h3{
+       font-family: 'Nanum Pen Script', cursive;
+  }
+  body
+    {
+      background-color: white;
+
+    }
+
+
+  </style>
+<div class="row" style="margin-top: 5%; text-align: center;">
+    <h1> 내 취향 Youtuber 찾기 프로젝트</h1>
+    <h3> 원하시는 분야를 골라주세요~~~~~~</h3>
+</div>
+<div class="row" style="margin-top: 5%">
+    <div class="col-md-4" >
+        <input type="radio" name="category" style="display:none" value="먹방">
+        <img src="{% static 'mukbang/image/burger.png' %}" id="img1" style="width: 70%;" class="center-block"
+        onClick="document.getElementsByName('category')[0].checked=true; setImageRadio();">
+        <h2 style="text-align: center;">먹방</h2>
+    </div>
+    <div class="col-md-4">
+        <input type="radio" name="category" style="display:none" value="테크">
+        <img src="{% static 'mukbang/image/laptop.png' %}" id="img2" style="width: 70%;"class="center-block"
+        onClick="document.getElementsByName('category')[1].checked=true; setImageRadio();">
+        <h2 style="text-align: center;">테크</h2>
+    </div>
+    <div class="col-md-4">
+        <input type="radio" name="category" style="display:none" value="음악">
+
+        <img src="{% static 'mukbang/image/headphones.png' %}" id="img3" style="width: 70%;"class="center-block"
+        onClick="document.getElementsByName('category')[2].checked=true; setImageRadio();">
+        <h2 style="text-align: center;">음악</h2>
+    </div>
+        <script>
+            function setImageRadio(){
+            document.getElementById('img1').src=
+            (document.getElementsByName('category')[0].checked==true)?"{% static 'mukbang/image/burger.png' %}":"{% static 'mukbang/image/burger2.png' %}";
+
+            document.getElementById('img2').src=
+            (document.getElementsByName('category')[1].checked==true)?"{% static 'mukbang/image/laptop.png' %}":"{% static 'mukbang/image/laptop2.png' %}";
+
+            document.getElementById('img3').src=
+            (document.getElementsByName('category')[2].checked==true)?"{% static 'mukbang/image/headphones.png' %}":"{% static 'mukbang/image/headphones2.png' %}";
+            }
+        </script>
+    </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12" style="margin-top: 30px">
+    <a class="btn btn-default center-block btn-lg" href="#" role="button">
+        시작하기
+    </a>
+  </div>
+</div>
+<div class="row" style="margin:10px">
+    <div class="col-md-1 col-md-offset-11">
+        <a href = "javascript:check_passwd()">
+            <img src="{% static 'mukbang/image/setting.png'%}" style="width: 50%;">
+        </a>
+    </div>
+</div>
+
+    <script>
+        function check_passwd() {
+            var passwd = prompt("비밀번호를 입력하세요");
+        }
+    </script>
 {% endblock %}
