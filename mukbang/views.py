@@ -49,3 +49,8 @@ def create(request):
         return HttpResponseRedirect('/mukbang/list/')
     form = Muckbangform()
     return render(request, 'first/create.html', {'form': form})
+def list_test(request):
+    context = {
+
+    }
+    return render(request, 'mukbang/youtuber_list.html', context)
