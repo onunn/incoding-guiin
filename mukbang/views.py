@@ -5,7 +5,7 @@ from django.template import loader
 from datetime import datetime
 
 from mukbang.models import Muckbang,Group
-from mukbang.forms import Muckbangform, Groupform, UpdateMuckbangform
+from mukbang.forms import Muckbangform, Groupform
 
 import random
 
@@ -46,7 +46,7 @@ def create(request, group_id):
         form = Muckbangform(request.POST)
         if form.is_valid():
             new_item = form.save()
-        return HttpResponseRedirect('/mukbang/list_test/')
+        return HttpResponseRedirect('/mukbang/group_list/')
 
     item = get_object_or_404(Group, pk=group_id)
     form = Muckbangform(initial={'group': item})
@@ -109,16 +109,16 @@ def update(request):
     if request.method == 'POST' and 'id' in request.POST:
         # item = Restaurant.objects.get(pk=request.POST.get('id'))
         item = get_object_or_404(Muckbang, pk=request.POST.get('id'))
-        password = request.POST.get('password', '')
-        form = UpdateMuckbangform(request.POST, instance=item)
-        if form.is_valid() and password == item.password:
+        # password = request.POST.get('password', '')
+        form = Muckbangform(request.POST, instance=item)
+        if form.is_valid() :
             item = form.save()
     elif request.method == 'GET':
         # item = Restaurant.objects.get(pk=request.GET.get('id'))  ##third/update?id=2
         item = get_object_or_404(Muckbang, pk=request.GET.get('id'))
         form = Muckbangform(instance=item)
-        return render(request, 'third/update.html', {'form': form})
-    return HttpResponseRedirect('/third/list/')
+        return render(request, 'first/update.html', {'form': form})
+    return HttpResponseRedirect('/mukbang/group_list/')
 
 def question2(request):
     context ={
