@@ -40,3 +40,9 @@ def test(request):
 
     }
     return render(request, 'mukbang/main.html',context)
+
+def list_test(request):
+    context = {
+
+    }
+    return render(request, 'mukbang/youtuber_list.html', context)
