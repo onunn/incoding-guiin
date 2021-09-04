@@ -1,0 +1,55 @@
+{% extends 'mukbang/base.html' %} {% load static %} {% block content %}
+<style>
+  @import url(//fonts.googleapis.com/earlyaccess/nanumpenscript.css);
+  @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+  h1 {
+    font-family: "Hanna", sans-serif;
+    color: white;
+  }
+  h2 {
+    font-family: "Nanum Pen Script", cursive;
+  }
+  h3 {
+    font-family: "Nanum Pen Script", cursive;
+    color: white;
+  }
+</style>
+<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<div class="row" style="margin-top: 10%">
+    <div class="question1">
+      <div>
+        <h1 style="color: white">아직 준비중입니다</h1>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12" style="margin-top: 10%"></div>
+
+        <div class="col-md-12">
+          
+          <button style="width: 500px; height: 50px; margin-bottom: 20px" onclick="goback()"
+          > 뒤로 가기
+          </button>
+          <script>
+            function goback(){
+              location.href="/mukbang/test"
+            }
+          </script>
+        </div>
+        <div class="col-md-12" style="height: 200px">
+          
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <script>
+    
+
+   
+  </script>
+
+  {% endblock %}
+</div>
