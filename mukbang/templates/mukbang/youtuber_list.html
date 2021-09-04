@@ -43,12 +43,15 @@
         <li role="presentation" id='F' onclick="checkActive(this.id)"><a href="6"> Group F </a></li>
       </ul>
 </div>
+{##}
+{#{% for item in youtubers %}#}
+{#    {% if youtubers.classifier ==  %}#}
 <div class='row' style="margin: 10%;">
     <div class="col-md-3" >
         <a href="#">
             <img src="../../static/mukbang/image/setting.png" class='img-circle center-block ' style="width: 80%">
         </a>
-        <p style="text-align: center;">Title</p>
+        <p style="text-align: center;"></p>
     </div>
     <div class="col-md-3">
         <a href="#">
@@ -71,7 +74,7 @@
 </div>
 <div class='row'>
     <div class="col-md-1 col-md-offset-11">
-        <a class="btn btn-default" href="{% url 'create' %}" role="button">Link</a>
+        <a class="btn btn-default" href="element{% url 'create' %}" role="button">Link</a>
     </div>
 </div>
 {% endblock %}

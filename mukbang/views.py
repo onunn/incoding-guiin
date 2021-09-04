@@ -48,11 +48,11 @@ def create(request, group_id):
             new_item = form.save()
         return HttpResponseRedirect('/mukbang/list_test/')
 
-
     item = get_object_or_404(Group, pk=group_id)
     form = Muckbangform(initial={'group': item})
 
     return render(request, 'first/create.html', {'form': form, 'item': item})
+
 
 def list_test(request):
     context = {
@@ -67,8 +67,11 @@ def youtuber_list(request):
     page = request.GET.get('page') ## third/list?page=1
     items = paginator.get_page(page)
 
+    groups = Group.objects.all()
+
     context = {
-        'youtubers': items
+        'youtubers': items,
+        'groups': groups
     }
     return render(request, 'first/list.html', context)
 
