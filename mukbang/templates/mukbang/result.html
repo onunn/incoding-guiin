@@ -24,27 +24,27 @@
         </div>
     </div>
 
-    <script>
-        function check_passwd() {
-
-            var passwd = prompt("비밀번호를 입력하세요");
-            if(passwd == 1234){
-                window.open("{% url 'group_list' %}", "_self")
-            }
-        }
-    </script>
 
     <div class="row" style="margin-top: 7%; text-align: center;">
         <h1> 내 취향 Youtuber 찾기 프로젝트</h1>
     </div>
 
-
-<div class="row">
-    <div class="col-md-12" style="margin-top: 30px">
-
-
+    <div class="row">
+        <div class="col-md-12" style="margin-top: 30px">
+            <div class='jumptron'>
+                <h1> 당신의 타입은 ~~~ </h1>
+                <p> asdfasdfsdfsdfsadf </p>
+                {% for youtuber in youtubers %}
+                    <div class='col-md-3'>
+                        <p>{{youtuber.name}}</p>
+                        <img src='{{youtuber.image}}'/>
+                        <p>{{youtuber.tag}}</p>
+                        <p>{{youtuber.link}}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
-</div>
 
 
 {% endblock %}

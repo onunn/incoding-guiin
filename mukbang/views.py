@@ -88,11 +88,17 @@ def question1(request):
     }
     return render(request, 'mukbang/question.html', context)
 
-def result(request):
+def result(request, group_id):
+    youtubers = Muckbang.objects.all().filter(group = group_id)
+    paginator = Paginator(youtubers, 10)
+
+    page = request.GET.get('page') ## third/list?page=1
+    items = paginator.get_page(page)
+
     context ={
 
     }
-    return render(request, 'mukbang/result.html', context)
+    return render(request, 'mukbang/result.html', {'context':context, 'youtubers': youtubers})
 
 def question2(request):
     context ={
