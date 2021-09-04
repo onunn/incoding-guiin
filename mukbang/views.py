@@ -5,7 +5,7 @@ from django.template import loader
 from datetime import datetime
 
 from mukbang.models import Muckbang,Group
-from mukbang.forms import Muckbangform, Groupform
+from mukbang.forms import Muckbangform, Groupform, UpdateMuckbangform
 
 import random
 
@@ -88,6 +88,7 @@ def question1(request):
     }
     return render(request, 'mukbang/question.html', context)
 
+
 def result(request, group_id):
     youtubers = Muckbang.objects.all().filter(group = group_id)
     paginator = Paginator(youtubers, 10)
@@ -95,10 +96,21 @@ def result(request, group_id):
     page = request.GET.get('page') ## third/list?page=1
     items = paginator.get_page(page)
 
-    context ={
 
-    }
-    return render(request, 'mukbang/result.html', {'context':context, 'youtubers': youtubers})
+def update(request):
+    if request.method == 'POST' and 'id' in request.POST:
+        # item = Restaurant.objects.get(pk=request.POST.get('id'))
+        item = get_object_or_404(Muckbang, pk=request.POST.get('id'))
+        password = request.POST.get('password', '')
+        form = UpdateMuckbangform(request.POST, instance=item)
+        if form.is_valid() and password == item.password:
+            item = form.save()
+    elif request.method == 'GET':
+        # item = Restaurant.objects.get(pk=request.GET.get('id'))  ##third/update?id=2
+        item = get_object_or_404(Muckbang, pk=request.GET.get('id'))
+        form = Muckbangform(instance=item)
+        return render(request, 'third/update.html', {'form': form})
+    return HttpResponseRedirect('/third/list/')
 
 def question2(request):
     context ={
