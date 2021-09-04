@@ -34,13 +34,9 @@
     </div>          
 </div>
 <div class='row'>
-    <ul class="nav nav-tabs" style="margin-top: 20px;">
-
         {% for group in groups %}
-            <li role="presentation"><a href="{% url 'youtuber' group_id=group.id %}"> Group A </a></li>
+            <a class='btn btn-default' href="{% url 'youtuber' group_id=group.id %}" style="margin:30px"> Group </a>
         {% endfor %}
-
-    </ul>
 </div>
 
 
