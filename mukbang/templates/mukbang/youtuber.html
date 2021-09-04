@@ -29,31 +29,23 @@
 <div class='row' style="margin: 10%;">
     <div class='col-md-12'>
         {% for item in context.youtubers %}
-            <div> 
-                {{ item.name }}
-            </div>
-            <div> 
-                {{ item.tag }}
-            </div>
-            <div> 
-                {{ item.link }}
-            </div>
-            <div> 
-                {{ item.image }}
-            </div>
-
             <div class="row">
                 <div class="col-sm-6 col-md-4">
-                  <div class="thumbnail">
-                    <img src="..." alt="...">
-                    <div class="caption">
-                      <h3>Thumbnail label</h3>
-                      <p>...</p>
-                      <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                    <div class="thumbnail">
+                        <img src="..." alt="...">
+                            <div class="caption">
+                                <h3>{{ item.name }}</h3>
+                                <p>
+                                    {{ item.tag }}
+                                </p>
+                                <p>
+                                    {{ item.link }}
+                                </p>
+                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                        </div>
                     </div>
-                  </div>
                 </div>
-              </div>
+            </div>
         {% endfor %}
     </div>
 </div>
