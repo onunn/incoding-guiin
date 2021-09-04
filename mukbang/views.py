@@ -61,8 +61,6 @@ def list_test(request):
 
 
 def group_list(request):
-
-
     groups = Group.objects.all()
 
     context = {
@@ -76,12 +74,13 @@ def youtuber(request, group_id):
     page = request.GET.get('page') ## third/list?page=1
     items = paginator.get_page(page)
 
-    groups = Group.objects.all()
+    group = Group.objects.all()[group_id-1]
 
     context = {
         'youtubers': items,
+        
     }
-    return render(request, 'mukbang/youtuber.html', {'context' : context, 'groups': groups})
+    return render(request, 'mukbang/youtuber.html', {'context' : context, 'group': group})
 
 
 def question_test(request):
