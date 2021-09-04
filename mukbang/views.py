@@ -70,5 +70,5 @@ def youtuber_list(request):
     context = {
         'youtubers': items
     }
-    return render(request, 'first/list.html', context)
+    return render(request, 'mukbang/youtuber_list.html', context)
 
