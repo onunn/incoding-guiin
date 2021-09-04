@@ -29,7 +29,7 @@
 
             var passwd = prompt("비밀번호를 입력하세요");
             if(passwd == 1234){
-                window.open("{% url 'list_test' %}", "_self")
+                window.open("{% url 'group_list' %}", "_self")
             }
         }
     </script>
@@ -85,12 +85,4 @@
 </div>
 
 
-    <script>
-        function check_passwd() {
-            var passwd = prompt("비밀번호를 입력하세요");
-            if(passwd==1234){
-                window.open("{% url 'list_test' %}", '_self')
-            }
-        }
-    </script>
 {% endblock %}

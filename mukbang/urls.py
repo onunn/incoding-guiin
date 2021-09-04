@@ -12,6 +12,6 @@ urlpatterns = [
  
     path('question_test/',views.question_test, name="question_test"),
     path('youtuber/<int:group_id>',views.youtuber, name="youtuber"),
-    path('list_test/', views.group_list, name='list_test'),
+    path('group_list/', views.group_list, name='group_list'),
 
 ]
