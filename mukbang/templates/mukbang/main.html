@@ -13,25 +13,8 @@
   h3{
        font-family: 'Nanum Pen Script', cursive; color: white;
   }
-
-
-
+  
   </style>
-
-<div class="row" style="margin:10px">
-    <div class="col-md-1 col-md-offset-11">
-        <a href = "javascript:check_passwd()">
-            <img src="{% static 'mukbang/image/setting.png'%}" style="width: 50%;">
-        </a>
-    </div>
-</div>
-
-<script>
-    function check_passwd() {
-        var passwd = prompt("비밀번호를 입력하세요");
-    }
-</script>
-
 <div class="row" style="margin-top: 7%; text-align: center;">
     <h1> 내 취향 Youtuber 찾기 프로젝트</h1>
     <h3> 원하시는 분야를 골라주세요~~~~~~</h3>
@@ -73,10 +56,25 @@
 
 <div class="row">
   <div class="col-md-12" style="margin-top: 30px">
-    <a class="btn btn-default center-block btn-lg" href="#" role="button">
-        시작하기
-    </a>
+    
+        <a class="btn btn-info center-block" ; style="width: 20%;" href="#" role="button">
+            시작하기
+        </a>
+   
+    
   </div>
 </div>
+<div class="row" style="margin:10px">
+    <div class="col-md-1 col-md-offset-11">
+        <a href = "javascript:check_passwd()">
+            <img src="{% static 'mukbang/image/setting.png'%}" style="width: 50%;">
+        </a>
+    </div>
+</div>
 
+    <script>
+        function check_passwd() {
+            var passwd = prompt("비밀번호를 입력하세요");
+        }
+    </script>
 {% endblock %}
