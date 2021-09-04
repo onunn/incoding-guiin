@@ -83,7 +83,6 @@ def youtuber(request, group_id):
     return render(request, 'mukbang/youtuber.html', {'context' : context, 'group': group})
 
 
-def question_test(request):
 def question1(request):
     context ={
 
@@ -96,7 +95,9 @@ def result(request):
     }
     return render(request, 'mukbang/result.html', context)
 
+def question2(request):
     context ={
 
+    }
     return render(request, 'mukbang/notready.html', context)
 

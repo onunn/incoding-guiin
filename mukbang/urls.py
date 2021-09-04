@@ -10,7 +10,6 @@ urlpatterns = [
     path('create/<int:group_id>', views.create, name='create'),
     # path('restaurant/<int:restaurant_id>/review/create', views.review_create, name='review-create'),
  
-    path('question_test/',views.question_test, name="question_test"),
     path('question/1',views.question1, name="question1"),
     path('question/2',views.question2, name="question2"),
     path('question/3',views.question2, name="question2"),
