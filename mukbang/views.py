@@ -4,8 +4,8 @@ from django.http import HttpResponse
 from django.template import loader
 from datetime import datetime
 
-from mukbang.models import Muckbang
-from mukbang.forms import Muckbangform
+from mukbang.models import Muckbang,Group
+from mukbang.forms import Muckbangform, Groupform
 
 import random
 
@@ -26,8 +26,7 @@ def list(request):
     youtuber = Muckbang.objects.all()
     paginator = Muckbang(youtuber, 5)
 
-    page = request.GET.get('page')
-    items = paginator.get_page(page)
+    items = paginator
 
     context = {
         'youtuber': items
@@ -41,9 +40,35 @@ def test(request):
     }
     return render(request, 'mukbang/main.html',context)
 
+
+def create(request, group_id):
+    if request.method == 'POST':
+        form = Muckbangform(request.POST)
+        if form.is_valid():
+            new_item = form.save()
+        return HttpResponseRedirect('/mukbang/list/')
+
+
+    item = get_object_or_404(Group, pk=group_id)
+    form = Muckbangform(initial={'group': item})
+
+    return render(request, 'first/create.html', {'form': form, 'item': item})
+
 def list_test(request):
     context = {
+    }
+    return render(request, 'mukbang/youtuber_list.html', context)
 
+
+def youtuber_list(request):
+    youtubers = Muckbang.objects.all().select_related().ordered('-created_at')
+    paginator = Paginator(youtubers, 10)
+
+    page = request.GET.get('page') ## third/list?page=1
+    items = paginator.get_page(page)
+
+    context = {
+        'youtubers': items
     }
     return render(request, 'mukbang/youtuber_list.html', context)
 

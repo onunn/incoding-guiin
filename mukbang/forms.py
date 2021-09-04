@@ -1,5 +1,6 @@
 # from django import forms
 from django.forms import ModelForm
+from django import forms
 from mukbang.models import Muckbang, Group
 from django.utils.translation import gettext_lazy as _
 
@@ -13,14 +14,14 @@ class Muckbangform(ModelForm):
         model = Muckbang
         fields = ['group','name', 'tag', 'link', 'image']
         labels = {
-            'group': _('속한 그룹'),
+            # 'group': _('속한 그룹'),
             'name': _('이름'),
             'tag' : _('태그'),
             'link' : _("유튜버 링크"),
             'image' : _("대표 사진"),
         }
         help_texts = {
-            'group': _('속할 그룹을 적어주세요.'),
+            # 'group': _('속할 그룹을 적어주세요.'),
             'name': _('이름을 적어주세요.'),
             'tag' : _('태그 입력해주세요.'),
             'link' : _("유튜버 링크"),
@@ -34,6 +35,9 @@ class Muckbangform(ModelForm):
                 'max_length' : _("이름은 20자 이내로 해주세요")
             },
 
+        }
+        widgets = {
+            'group': forms.HiddenInput(),
         }
 
 class Groupform(ModelForm) :
