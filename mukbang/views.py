@@ -91,10 +91,18 @@ def question1(request):
 
 def result(request, group_id):
     youtubers = Muckbang.objects.all().filter(group = group_id)
+    group = Group.objects.all()[group_id-1]
+
     paginator = Paginator(youtubers, 10)
 
     page = request.GET.get('page') ## third/list?page=1
     items = paginator.get_page(page)
+    
+    context = {
+
+    }
+
+    return render(request, 'mukbang/result.html', {'context':context, 'youtubers':youtubers, 'group':group})
 
 
 def update(request):
