@@ -26,8 +26,7 @@ def list(request):
     youtuber = Muckbang.objects.all()
     paginator = Muckbang(youtuber, 5)
 
-    page = request.GET.get('page')
-    items = paginator.get_page(page)
+    items = paginator
 
     context = {
         'youtuber': items
@@ -41,6 +40,15 @@ def test(request):
     }
     return render(request, 'mukbang/main.html',context)
 
+
+def create(request):
+    if request.method == 'POST':
+        form = Muckbangform(request.POST)
+        if form.is_valid():
+            new_item = form.save()
+        return HttpResponseRedirect('/mukbang/list/')
+    form = Muckbangform()
+    return render(request, 'first/create.html', {'form': form})
 def list_test(request):
     context = {
 
