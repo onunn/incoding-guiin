@@ -1,10 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends 'first/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <form action="{% url 'create' %}" method="post">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <button type="submit">등록</button>
+    </form>
+</div>
+{% endblock %}
