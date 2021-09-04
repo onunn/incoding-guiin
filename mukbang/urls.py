@@ -13,5 +13,6 @@ urlpatterns = [
     path('question_test/',views.question_test, name="question_test"),
     path('youtuber/<int:group_id>',views.youtuber, name="youtuber"),
     path('group_list/', views.group_list, name='group_list'),
+    path('result/', views.result, name='result'),
 
 ]

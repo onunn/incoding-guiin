@@ -88,3 +88,9 @@ def question_test(request):
 
     }
     return render(request, 'mukbang/question.html', context)
+
+def result(request):
+    context ={
+
+    }
+    return render(request, 'mukbang/result.html', context)

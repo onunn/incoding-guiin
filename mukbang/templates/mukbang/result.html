@@ -1,0 +1,50 @@
+{% extends 'mukbang/base.html' %}
+{% load static %}
+{% block content %}
+<style>
+  @import url(//fonts.googleapis.com/earlyaccess/nanumpenscript.css);
+  @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+  h1{
+    font-family: 'Hanna', sans-serif; color: white;
+  }
+  h2{
+       font-family: 'Nanum Pen Script', cursive;
+  }
+  h3{
+       font-family: 'Nanum Pen Script', cursive; color: white;
+  }
+
+  </style>
+<div class="main">
+    <div class="row" style="margin:10px">
+        <div class="col-md-1 col-md-offset-11">
+            <a href = "javascript:check_passwd()">
+                <img src="{% static 'mukbang/image/setting.png'%}" style="width: 50%;">
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function check_passwd() {
+
+            var passwd = prompt("비밀번호를 입력하세요");
+            if(passwd == 1234){
+                window.open("{% url 'group_list' %}", "_self")
+            }
+        }
+    </script>
+
+    <div class="row" style="margin-top: 7%; text-align: center;">
+        <h1> 내 취향 Youtuber 찾기 프로젝트</h1>
+    </div>
+
+
+<div class="row">
+    <div class="col-md-12" style="margin-top: 30px">
+
+
+    </div>
+</div>
+
+
+{% endblock %}
