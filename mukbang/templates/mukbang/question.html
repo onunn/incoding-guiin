@@ -1,0 +1,300 @@
+{% extends 'mukbang/base.html' %} {% load static %} {% block content %}
+<style>
+  @import url(//fonts.googleapis.com/earlyaccess/nanumpenscript.css);
+  @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+  h1 {
+    font-family: "Hanna", sans-serif;
+    color: white;
+  }
+  h2 {
+    font-family: "Nanum Pen Script", cursive;
+  }
+  h3 {
+    font-family: "Nanum Pen Script", cursive;
+    color: white;
+  }
+</style>
+<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<div class="row" style="margin-top: 10%">
+  <div class="question1">
+    <div>
+      <h1 style="color: white">많이 먹는 Youtuber를 보면 입맛이 도나요?</h1>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12" style="margin-top: 10%"></div>
+
+      <div class="col-md-12">
+        <button
+          class="select1"
+          style="width: 500px; height: 50px; margin-bottom: 20px"
+        >
+          네
+        </button>
+      </div>
+      <div class="col-md-12" style="height: 200px">
+        <button
+          class="select2"
+          style="width: 500px; height: 50px; margin-bottom: 20px"
+        >
+          아니요
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="question2">
+      <div>
+        <h1 style="color: white">어디에서 진행하는 먹방을 좋아하나요?</h1>
+      </div>
+    
+
+    <div class="row">
+      <div class="col-md-12" style="margin-top: 10%"></div>
+
+        <div class="col-md-12">
+          <button
+            class="select3"
+            style="width: 500px; height: 50px; margin-bottom: 20px"
+          >
+            야외
+          </button>
+        </div>
+        <div class="col-md-12" style="height: 200px">
+          <button
+            class="select3"
+            style="width: 500px; height: 50px; margin-bottom: 20px"
+          >
+            실내
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="question3">
+    <div>
+      <h1 style="color: white">ASMR을 자주 듣나요?</h1>
+    </div>
+  
+
+  <div class="row">
+    <div class="col-md-12" style="margin-top: 10%"></div>
+
+      <div class="col-md-12">
+        <button
+          class="select5"
+          style="width: 500px; height: 50px; margin-bottom: 20px"
+        >
+          네네! 너무 좋아요~
+        </button>
+      </div>
+      <div class="col-md-12" style="height: 200px">
+        <button
+          class="select6"
+          style="width: 500px; height: 50px; margin-bottom: 20px"
+        >
+          으,,전 잘 안들어요.
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="question4">
+  <div class='col-md-12'>
+    <h1 style="color: white">매운 음식 좋아하세요?</h1>
+  </div>
+
+<div class="row">
+  <div class="col-md-12" style="margin-top: 10%"></div>
+
+    <div class="col-md-12">
+      <button
+        class="select7"
+        style="width: 500px; height: 50px; margin-bottom: 20px"
+      >
+        매운 음식은 스트레스 풀기 직빵!
+      </button>
+    </div>
+    <div class="col-md-12" style="height: 200px">
+      <button
+        class="select8"
+        style="width: 500px; height: 50px; margin-bottom: 20px"
+      >
+        전 매운 음식 보기만해도 땀흘려서 싫어요
+      </button>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div class="question5">
+  <div>
+    <h1 style="color: white">실시간 방송을 보고싶으신가요?</h1>
+  </div>
+
+
+<div class="row">
+  <div class="col-md-12" style="margin-top: 10%"></div>
+
+    <div class="col-md-12">
+      <button
+        class="select9"
+        style="width: 500px; height: 50px; margin-bottom: 20px"
+      >
+        방송보면서 소통해야 제맛이죠~
+      </button>
+    </div>
+    <div class="col-md-12" style="height: 200px">
+      <button
+        class="select10"
+        style="width: 500px; height: 50px; margin-bottom: 20px"
+      >
+        시간 맞춰 보기 귀찮아요~
+      </button>
+    </div>
+  </div>
+</div>
+</div>
+<div class="result">
+  <div>
+    <h1 style="color: white">두구두구 당신이 좋아할 것 같은 먹방 유투버는!!</h1>
+  </div>
+
+
+<div class="row">
+  <div class="col-md-12" style="margin-top: 10%"></div>
+
+    <div class="col-md-12">
+    
+    </div>
+    <div class="col-md-12" style="height: 200px">
+  
+    </div>
+  </div>
+</div>
+</div>
+  <script>
+    $(document).ready(function () {
+      $(".question2").hide();
+      $(".question3").hide();
+      $(".question4").hide();
+      $(".question5").hide();
+      $(".result").hide();
+      var arr = [0, 0, 0, 0, 0, 0];
+      $("button.select1").click(function () {
+        
+        arr[0] += 2.5;
+        arr[1] += 1;
+        arr[2] += 2.1;
+        console.log(arr);
+        $(".question1").hide();
+        $(".question2").show();
+      });
+      $("button.select2").click(function () {
+        
+        arr[3] += 1;
+        arr[4] += 1;
+        arr[5] += 1;
+        console.log(arr);
+        $(".question1").hide();
+        $(".question2").show();
+      });
+
+      $("button.select3").click(function () {
+        arr[0] += 1;
+        arr[1] += 2.3;
+        arr[5] += 2.7;
+        console.log(arr);
+        $(".question2").hide();
+        $(".question3").show();
+      });
+      $("button.select4").click(function () {
+        arr[0] += 1;
+        arr[2] += 1;
+        arr[3] += 1;
+        arr[4] += 1;
+        console.log(arr);
+        $(".question2").hide();
+        $(".question3").show();
+      });
+      $("button.select5").click(function () {
+       
+        arr[3] += 1;
+        arr[4] += 1;
+        console.log(arr);
+        $(".question3").hide();
+        $(".question4").show();
+      });
+        $("button.select6").click(function () {
+        arr[0] += 1;
+        arr[1] += 1;
+        arr[2] += 1;
+        arr[5] += 1;
+        console.log(arr);
+        $(".question3").hide();
+        $(".question4").show();
+      });
+      $("button.select7").click(function () {
+       
+       arr[1] += 1;
+       arr[3] += 2;
+       arr[4] += 1;
+       console.log(arr);
+       $(".question4").hide();
+       $(".question5").show();
+     });
+     $("button.select8").click(function () {
+       
+       arr[0] += 1;
+       arr[2] += 1;
+       arr[5] += 1;
+       console.log(arr);
+       $(".question4").hide();
+       $(".question5").show();
+     });
+     $("button.select9").click(function () {
+       
+       arr[0] += 2;
+       arr[1] += 1;
+       
+       console.log(arr);
+       $(".question5").hide();
+       $(".result").show();
+     });
+     $("button.select10").click(function () {
+       
+       arr[2] += 1;
+       arr[3] += 1;
+       arr[4] += 1;
+       arr[5] += 1;
+       
+       console.log(arr);
+       $(".question5").hide();
+       $(".result").show();
+     });
+    });
+
+    // var arr = [0, 0, 0, 0, 0, 0];
+    // function do1() {
+    //   arr[0] += 2;
+    //   arr[1] += 1;
+    //   arr[2] += 2;
+
+    //   console.log(arr);
+    //   $(".question1").hide();
+    // }
+
+    // function do2() {
+    //   arr[3] += 1;
+    //   arr[4] += 1;
+    //   arr[5] += 1;
+    //   console.log(arr);
+  </script>
+
+  {% endblock %}
+</div>

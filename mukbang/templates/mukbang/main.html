@@ -14,8 +14,6 @@
        font-family: 'Nanum Pen Script', cursive; color: white;
   }
 
-
-
   </style>
 <div class="main">
     <div class="row" style="margin:10px">
@@ -28,8 +26,11 @@
 
     <script>
         function check_passwd() {
-            
+
             var passwd = prompt("비밀번호를 입력하세요");
+            if(passwd == 1234){
+                window.open("{% url 'list_test' %}", "_self")
+            }
         }
     </script>
 
@@ -72,12 +73,27 @@
         </div>
     </div>
 
-    <div class="row">
-    <div class="col-md-12" style="margin-top: 30px">
-        <a class="btn btn-default center-block btn-lg" href="#" role="button">
+<div class="row">
+  <div class="col-md-12" style="margin-top: 30px">
+
+        <a class="btn btn-info center-block" ; style="width: 20%;" href="#" role="button">
             시작하기
         </a>
-    </div>
+
+
+  </div>
+</div>
+<div class="row" style="margin:10px">
+    <div class="col-md-1 col-md-offset-11">
+        <a href = "javascript:check_passwd()">
+            <img src="{% static 'mukbang/image/setting.png'%}" style="width: 50%;">
+        </a>
     </div>
 </div>
+
+    <script>
+        function check_passwd() {
+            var passwd = prompt("비밀번호를 입력하세요");
+        }
+    </script>
 {% endblock %}
