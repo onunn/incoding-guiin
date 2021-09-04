@@ -57,3 +57,7 @@ class Groupform(ModelForm) :
                 'max_length' :  _("그룹 이름은 2자 이내로 해주세요")
             },
         }
+class UpdateMuckbangform(Muckbangform):
+    class Meta:
+        model = Muckbang
+        exclude = ['password']
