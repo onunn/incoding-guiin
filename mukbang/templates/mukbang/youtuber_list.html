@@ -3,11 +3,14 @@
 {% block content %}
 
 <script>
+
     function checkActive(clicked_id){
+        var test_id = clicked_id
 
         alert(clicked_id)
         var element = document.getElementById(clicked_id);
         element.addClass(' active ')
+
     }
 </script>
 
@@ -35,43 +38,33 @@
 </div>
 <div class='row'>
     <ul class="nav nav-tabs" style="margin-top: 20px;">
-        <li role="presentation" id='A' onclick="checkActive(this.id)"><a href="1"> Group A </a></li>
-        <li role="presentation" id='B' onclick="checkActive(this.id)"><a href="2"> Group B </a></li>
-        <li role="presentation" id='C' onclick="checkActive(this.id)"><a href="3"> Group C </a></li>
-        <li role="presentation" id="D" onclick="checkActive(this.id)"><a href="4"> Group D</a></li>
-        <li role="presentation" id='E' onclick="checkActive(this.id)"><a href="5"> Group E</a></li>
-        <li role="presentation" id='F' onclick="checkActive(this.id)"><a href="6"> Group F </a></li>
+        <li role="presentation" id='1' onclick="checkActive(this.id)"><a href="#"> Group A </a></li>
+        <li role="presentation" id='2' onclick="checkActive(this.id)"><a href="#"> Group B </a></li>
+        <li role="presentation" id='3' onclick="checkActive(this.id)"><a href="#"> Group C </a></li>
+        <li role="presentation" id="4" onclick="checkActive(this.id)"><a href="#"> Group D</a></li>
+        <li role="presentation" id='5' onclick="checkActive(this.id)"><a href="#"> Group E</a></li>
+        <li role="presentation" id='6' onclick="checkActive(this.id)"><a href="#"> Group F </a></li>
       </ul>
 </div>
 <div class='row' style="margin: 10%;">
-    <div class="col-md-3" >
-        <a href="#">
-            <img src="../../static/mukbang/image/setting.png" class='img-circle center-block ' style="width: 80%">
-        </a>
-        <p style="text-align: center;">Title</p>
-    </div>
-    <div class="col-md-3">
-        <a href="#">
-            <img src="../../static/mukbang/image/setting.png" class='img-circle center-block ' style="width: 80%">
-        </a>
-        <p style="text-align: center;">Title</p>
-    </div> 
-    <div class="col-md-3">
-        <a href="#">
-            <img src="../../static/mukbang/image/setting.png" class='img-circle center-block ' style="width: 80%">
-        </a>
-        <p style="text-align: center;">Title</p>
-    </div> 
-    <div class="col-md-3">
-        <a href="#">
-            <img src="../../static/mukbang/image/setting.png" class='img-circle center-block ' style="width: 80%">
-        </a>
-        <p style="text-align: center;">Title</p>
-    </div> 
+    {% for item in youtubers %}
+        {{ item.name }}
+    {% endfor %}
 </div>
 <div class='row'>
     <div class="col-md-1 col-md-offset-11">
-        <a class="btn btn-default" href="{% url 'create' %}" role="button">Link</a>
+        <button class="btn btn-default test" >네네</button>
+        <a class="btn btn-default" href="{% url 'create' group_id =  %}" role="button">Link</a>
     </div>
 </div>
+<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+    
+    $(document).ready(function(){
+        $("test").click(function(){
+            location.href("{% url 'create' groud_id = test_id%}")
+        })
+
+    });
+</script>
 {% endblock %}
