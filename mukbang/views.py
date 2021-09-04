@@ -60,8 +60,17 @@ def list_test(request):
     return render(request, 'mukbang/youtuber_list.html', context)
 
 
-def youtuber_list(request):
-    youtubers = Muckbang.objects.all().select_related().ordered('-created_at')
+def group_list(request):
+
+
+    groups = Group.objects.all()
+
+    context = {
+    }
+    return render(request, 'mukbang/group_list.html', {'context' : context, 'groups': groups})
+
+def youtuber(request, group_id):
+    youtubers = Muckbang.objects.all().filter(group = group_id)
     paginator = Paginator(youtubers, 10)
 
     page = request.GET.get('page') ## third/list?page=1
@@ -71,9 +80,9 @@ def youtuber_list(request):
 
     context = {
         'youtubers': items,
-        'groups': groups
     }
-    return render(request, 'mukbang/youtuber_list.html', context)
+    return render(request, 'mukbang/youtuber.html', {'context' : context, 'groups': groups})
+
 
 def question_test(request):
     context ={
