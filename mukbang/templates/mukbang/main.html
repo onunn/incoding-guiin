@@ -17,6 +17,21 @@
 
 
   </style>
+
+<div class="row" style="margin:10px">
+    <div class="col-md-1 col-md-offset-11">
+        <a href = "javascript:check_passwd()">
+            <img src="{% static 'mukbang/image/setting.png'%}" style="width: 50%;">
+        </a>
+    </div>
+</div>
+
+<script>
+    function check_passwd() {
+        var passwd = prompt("비밀번호를 입력하세요");
+    }
+</script>
+
 <div class="row" style="margin-top: 7%; text-align: center;">
     <h1> 내 취향 Youtuber 찾기 프로젝트</h1>
     <h3> 원하시는 분야를 골라주세요~~~~~~</h3>
@@ -63,17 +78,5 @@
     </a>
   </div>
 </div>
-<div class="row" style="margin:10px">
-    <div class="col-md-1 col-md-offset-11">
-        <a href = "javascript:check_passwd()">
-            <img src="{% static 'mukbang/image/setting.png'%}" style="width: 50%;">
-        </a>
-    </div>
-</div>
 
-    <script>
-        function check_passwd() {
-            var passwd = prompt("비밀번호를 입력하세요");
-        }
-    </script>
 {% endblock %}
