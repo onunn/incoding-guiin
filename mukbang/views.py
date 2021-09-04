@@ -89,6 +89,22 @@ def question1(request):
     return render(request, 'mukbang/question.html', context)
 
 
+def result(request, group_id):
+    youtubers = Muckbang.objects.all().filter(group = group_id)
+    group = Group.objects.all()[group_id-1]
+
+    paginator = Paginator(youtubers, 10)
+
+    page = request.GET.get('page') ## third/list?page=1
+    items = paginator.get_page(page)
+    
+    context = {
+
+    }
+
+    return render(request, 'mukbang/result.html', {'context':context, 'youtubers':youtubers, 'group':group})
+
+
 def update(request):
     if request.method == 'POST' and 'id' in request.POST:
         # item = Restaurant.objects.get(pk=request.POST.get('id'))
@@ -103,12 +119,6 @@ def update(request):
         form = Muckbangform(instance=item)
         return render(request, 'first/update.html', {'form': form})
     return HttpResponseRedirect('/mukbang/group_list/')
-
-def result(request):
-    context ={
-
-    }
-    return render(request, 'mukbang/result.html', context)
 
 def question2(request):
     context ={
