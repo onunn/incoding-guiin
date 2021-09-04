@@ -48,8 +48,8 @@ def create(request, group_id):
             new_item = form.save()
         return HttpResponseRedirect('/mukbang/list/')
 
-    item = get_object_or_404(Muckbang, pk=group_id)
-    form = Muckbangform(initial={'group_classifier': item})
+    item = get_object_or_404(Group, pk=group_id)
+    form = Muckbangform(initial={'group': item})
 
     return render(request, 'first/create.html', {'form': form, 'item': item})
 
