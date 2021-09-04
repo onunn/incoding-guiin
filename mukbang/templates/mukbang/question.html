@@ -164,13 +164,11 @@
   <div>
     <h1 style="color: white">두구두구 당신이 좋아할 것 같은 먹방 유투버는!!</h1>
   </div>
-
-
 <div class="row">
   <div class="col-md-12" style="margin-top: 10%"></div>
 
     <div class="col-md-12">
-    
+      <button class="result1" style="width: 500px; height: 50px; margin-bottom: 20px"> 결과보기</button>
     </div>
     <div class="col-md-12" style="height: 200px">
   
@@ -276,6 +274,24 @@
        console.log(arr);
        $(".question5").hide();
        $(".result").show();
+     });
+     $("button.result1").click(function () {
+       
+       var maxv =0;
+            
+          let max = arr[0];
+          
+          for (i = 0 ; i < arr.length; i++) {
+            if (arr[i] > max ) {
+              max = arr[i];
+              maxv = i;
+            } 
+          } 
+        var group_id = maxv+1;
+          console.log(group_id);
+        
+
+        
      });
     });
 
