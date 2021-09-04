@@ -72,3 +72,8 @@ def youtuber_list(request):
     }
     return render(request, 'mukbang/youtuber_list.html', context)
 
+def question_test(request):
+    context ={
+
+    }
+    return render(request, 'mukbang/question.html', context)
