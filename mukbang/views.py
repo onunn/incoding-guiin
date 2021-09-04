@@ -46,7 +46,7 @@ def create(request, group_id):
         form = Muckbangform(request.POST)
         if form.is_valid():
             new_item = form.save()
-        return HttpResponseRedirect('/mukbang/list/')
+        return HttpResponseRedirect('/mukbang/list_test/')
 
 
     item = get_object_or_404(Group, pk=group_id)
