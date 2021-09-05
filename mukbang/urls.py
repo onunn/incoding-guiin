@@ -18,5 +18,5 @@ urlpatterns = [
     path('youtuber/<int:group_id>',views.youtuber, name="youtuber"),
     path('group_list/', views.group_list, name='group_list'),
     path('result/<int:group_id>', views.result, name='result'),
-
-]
+    path('delete/', views.delete, name='delete'),
+]   

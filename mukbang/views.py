@@ -120,6 +120,13 @@ def update(request):
         return render(request, 'first/update.html', {'form': form})
     return HttpResponseRedirect('/mukbang/group_list/')
 
+def delete(request):
+    if request.method == 'GET':
+        # item = Restaurant.objects.get(pk=request.GET.get('id'))  ##third/update?id=2
+        item = get_object_or_404(Muckbang, pk=request.GET.get('id'))
+        item.delete()
+        
+    return HttpResponseRedirect('/mukbang/group_list/')
 def question2(request):
     context ={
     }
